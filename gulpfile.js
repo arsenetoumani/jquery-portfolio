@@ -6,7 +6,7 @@ var concat = require('gulp-concat');
 
 // Uglify js
 gulp.task('scripts', function() {
-    return gulp.src('demo/*.js')
+    return gulp.src('src/*.js')
         .pipe(concat('portfolio.jquery.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist'));
@@ -14,7 +14,7 @@ gulp.task('scripts', function() {
 
 // Minify css
 gulp.task('styles', function() {
-    return gulp.src('demo/*.css')
+    return gulp.src('src/*.css')
         .pipe(concat('portfolio.jquery.min.css'))
         .pipe(minifyCSS())
         .pipe(gulp.dest('dist'));

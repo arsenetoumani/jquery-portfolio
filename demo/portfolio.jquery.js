@@ -26,6 +26,19 @@ if (typeof Object.create !== 'function') {
             self.$thumnail.click(function() {
                 self.showContent($(this));
             });
+            
+            // this auto opens a card if there is a hash in the url
+            if (self.options.autoOpen) {
+                self.$thumnail.each(function () {
+                    var $this = $(this),
+                        href = $this.attr('href'),
+                        hash = window.location.hash;
+                    
+                    if (hash === href) {
+                        $this.click();
+                    }
+                });  
+            }
         },
         setColWidth: function() {
             var self = this;
@@ -115,6 +128,7 @@ if (typeof Object.create !== 'function') {
     // Default options
     $.fn.portfolio.options = {
         cols: 3,
-        transition: 'slideDown'
+        transition: 'slideDown',
+        autoOpen: true
     };
 })(jQuery, window, document);
